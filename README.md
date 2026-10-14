@@ -16,7 +16,7 @@ The ministry's own site is [prayersealed.org](https://prayersealed.org) ([repo](
 
 A static site on GitHub Pages, deployed from the `main` branch root. `CNAME` sets the custom domain; `.nojekyll` serves the files as written. Pages are plain HTML sharing `styles/site.css`.
 
-These pages moved from `prayerwarriors.mobi/prayer-sealed/…`. The old addresses forward here, because the app, the App Store and Google Play listings, and Google Play's account-deletion link point at them.
+These pages moved from `prayerwarriors.mobi/prayer-sealed/…`. Once this site is live, the old addresses forward here (configured in the `Prayerwarriors.mobi` hosting), because the app, the App Store and Google Play listings, and Google Play's account-deletion link point at them. The demo mockup stays at `prayerwarriors.mobi/prayer-sealed/mockup/`.
 
 ## Changing a policy
 

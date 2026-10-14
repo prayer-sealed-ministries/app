@@ -1,0 +1,274 @@
+/* Prayer Sealed / ministry software — shared static site styles.
+   Values taken from the app's own dark theme (src/styles/globals.css). */
+
+:root {
+  --navy-950: #0B1220;
+  --navy-900: #0F172A;   /* --background in the app's .dark theme */
+  --navy-800: #172033;
+  --card:     #16203373;
+  --border:   #1E293B;
+  --text:     #F2F2F2;   /* --foreground */
+  --muted:    #94A3B8;   /* --muted-foreground */
+  --muted-dim:#64748B;
+  --gold:     #FBBF24;   /* amber-400 — the app's accent */
+  --gold-600: #F59E0B;
+  --maxw: 44rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--navy-900);
+  background-image: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 40%, var(--navy-950) 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding:
+    env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+/* ── Type ─────────────────────────────────────────────────────────── */
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; margin: 0; font-weight: 700; }
+h1 { font-size: 1.875rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.0625rem; }
+p  { margin: 0 0 1rem; color: var(--muted); }
+a  { color: var(--gold); }
+a:hover { color: var(--gold-600); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+.lede { font-size: 1.0625rem; color: var(--muted); }
+.small { font-size: 0.875rem; }
+.dim { color: var(--muted-dim); }
+
+/* ── Brand mark ───────────────────────────────────────────────────── */
+.brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2.25rem; }
+.brand-mark {
+  width: 2.5rem; height: 2.5rem; flex: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-600) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.22);
+}
+.brand-name { font-weight: 700; letter-spacing: -0.01em; }
+.brand a { color: var(--text); text-decoration: none; }
+
+/* ── Eyebrow / badges ─────────────────────────────────────────────── */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.6875rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.625rem;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.6875rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 999px;
+  padding: 0.25rem 0.625rem;
+  white-space: nowrap;
+}
+.badge-quiet {
+  color: var(--muted);
+  background: rgba(148, 163, 184, 0.1);
+  border-color: rgba(148, 163, 184, 0.22);
+}
+
+/* ── Tagline ──────────────────────────────────────────────────────── */
+.tagline {
+  font-size: 0.875rem; font-weight: 600; font-style: italic;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.tagline .tm {
+  font-style: normal; font-weight: 400;
+  font-size: 0.75em; vertical-align: 0.35em;
+  letter-spacing: 0;
+}
+.tagline-quiet {
+  font-size: 0.8125rem; font-weight: 500;
+  color: var(--muted-dim);
+}
+/* Sits on the eyebrow's line as a lockup, without inheriting its spacing. */
+.eyebrow + .tagline-quiet { margin-left: 0.5rem; }
+
+/* ── The path (landing page) ──────────────────────────────────────── */
+.path { list-style: none; margin: 2.5rem 0 0; padding: 0; }
+
+.stage { position: relative; padding: 0 0 2.25rem 3.25rem; }
+/* The spine connecting each stage to the next. */
+.stage::before {
+  content: ""; position: absolute;
+  left: 1.09375rem; top: 2.5rem; bottom: 0;
+  width: 1px; background: linear-gradient(180deg, var(--border), rgba(30, 41, 59, 0.15));
+}
+.stage:last-child { padding-bottom: 0.5rem; }
+.stage:last-child::before { display: none; }
+
+.stage-node {
+  position: absolute; left: 0; top: 0.125rem;
+  width: 2.25rem; height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  background: var(--navy-800);
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8125rem; font-weight: 700;
+}
+.stage-verb {
+  font-size: 0.6875rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 0.25rem;
+}
+.stage-head {
+  display: flex; align-items: baseline; flex-wrap: wrap;
+  gap: 0.5rem 0.625rem; margin-bottom: 0.5rem;
+}
+.stage p { margin-bottom: 0.75rem; }
+.stage p:last-child { margin-bottom: 0; }
+
+/* ── Cards & panels ───────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  padding: 1.25rem;
+  margin: 0 0 1rem;
+}
+.card h3 { margin-bottom: 0.375rem; }
+.card p:last-child { margin-bottom: 0; }
+
+.note {
+  border-left: 2px solid var(--gold);
+  background: rgba(251, 191, 36, 0.06);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.875rem 1rem;
+  margin: 0 0 1.5rem;
+}
+.note p:last-child { margin-bottom: 0; }
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;                 /* WCAG touch target */
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600; font-size: 0.9375rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.btn-primary { background: var(--gold); color: #1A1205; }
+.btn-primary:hover { background: var(--gold-600); color: #1A1205; }
+.btn-secondary { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); color: var(--text); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 1.5rem; }
+
+/* ── Link list (product page → legal routes) ──────────────────────── */
+.links { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+.links li { border-bottom: 1px solid var(--border); }
+.links a {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; min-height: 44px; padding: 0.875rem 0.25rem;
+  color: var(--text); text-decoration: none; font-weight: 500;
+}
+.links a:hover { color: var(--gold); }
+.links .chev { color: var(--muted-dim); flex: none; }
+
+/* ── Footer ───────────────────────────────────────────────────────── */
+.foot {
+  margin-top: 3rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted-dim); font-size: 0.8125rem;
+}
+.foot a { color: var(--muted); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 0.375rem 1rem; margin-bottom: 0.75rem; }
+
+.back { display: inline-block; margin-bottom: 1.5rem; font-size: 0.875rem; text-decoration: none; }
+
+hr.rule { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+/* ── Wider viewports ──────────────────────────────────────────────── */
+@media (min-width: 34rem) {
+  .wrap { padding: 3.5rem 2rem 5rem; }
+  h1 { font-size: 2.375rem; }
+  h2 { font-size: 1.4375rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ── Long-form legal / policy prose ───────────────────────────────── */
+.prose { max-width: 38rem; }
+.prose > h2 {
+  margin: 2.75rem 0 0.875rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 1.1875rem;
+}
+.prose > h2:first-of-type { border-top: 0; padding-top: 0; }
+.prose h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.prose p { margin: 0 0 1rem; }
+.prose strong { color: var(--text); font-weight: 650; }
+.prose ul { margin: 0 0 1.25rem; padding-left: 1.125rem; }
+.prose li { color: var(--muted); margin-bottom: 0.5rem; }
+.prose li::marker { color: var(--gold); }
+.prose blockquote {
+  margin: 1.25rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--gold);
+  color: var(--muted);
+  font-style: italic;
+}
+.prose a { overflow-wrap: anywhere; }
+
+.doc-meta {
+  /* was --muted-dim (#64748B): 3.75:1 on the navy, below WCAG AA 4.5:1 */
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin: 0 0 2rem;
+}
+.address {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.address .name { color: var(--text); font-weight: 650; }
+.closing {
+  margin-top: 2.75rem;
+  padding: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+}
+.closing h3 { margin-top: 0; font-size: 1rem; }
+.prose ol { margin: 0 0 1.25rem; padding-left: 1.375rem; }
+.prose ol li { color: var(--muted); margin-bottom: 0.5rem; }
+
+/* ── Tap targets for standalone (non-prose) links ─────────────────── */
+.foot-links a { display: inline-block; padding: 0.875rem 0; line-height: 1.2; }
+.foot-links { gap: 0 1.125rem; }
+.back { padding: 0.875rem 0; line-height: 1.2; }
+.brand-name a { display: inline-block; padding: 0.75rem 0; }
+.brand-mark { min-width: 44px; min-height: 44px; }
